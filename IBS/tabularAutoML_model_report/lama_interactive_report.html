@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <title>LAMA report</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    /* Remove default bullets */
+    ul,
+    #myUL {
+        list-style-type: none;
+    }
+
+    /* Remove margins and padding from the parent ul */
+    #myUL {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the caret/arrow */
+    .caret {
+        cursor: pointer;
+        user-select: none;
+        /* Prevent text selection */
+    }
+
+    /* Create the caret/arrow with a unicode, and style it */
+    .caret::before {
+        content: "\25B6";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+    }
+
+    /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+    .caret-down::before {
+        transform: rotate(90deg);
+    }
+
+    /* Hide the nested list */
+    .nested {
+        display: none;
+    }
+
+    /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+    .active {
+        display: block;
+    }
+    
+</style>
+<!--
+<script src="shap.js"></script>
+
+-->
+
+<body>
+    <div>
+        <h1>LAMA report</h1>
+    </div>
+    <ul id="myUL">
+        
+            <p>This report was generated automatically.</p>
+        
+            <li>
+    <h2 class="caret caret-down" id="section1">Model overview</h2>
+    <ul class="nested active">
+        <li>
+            <h3 class="caret" id="section1_1">Model parameters</h3>
+            <ul class="nested">
+                <p>The following model is loaded: <b>TabularAutoML</b>.</p>
+                <p>Model parameters are described below:</p>
+
+                <table border="1"><tr><th>config_path</th><td>None</td></tr><tr><th>general_params</th><td><table border="1"><tr><th>use_algos</th><td>auto</td></tr><tr><th>nested_cv</th><td>False</td></tr><tr><th>skip_conn</th><td>True</td></tr><tr><th>return_all_predictions</th><td>False</td></tr><tr><th>weighted_blender_max_nonzero_coef</th><td>0.05</td></tr></table></td></tr><tr><th>reader_params</th><td><table border="1"><tr><th>samples</th><td>100000</td></tr><tr><th>max_nan_rate</th><td>0.999</td></tr><tr><th>max_constant_rate</th><td>0.999</td></tr><tr><th>cv</th><td>5</td></tr><tr><th>random_state</th><td>42</td></tr><tr><th>roles_params</th><td>None</td></tr><tr><th>n_jobs</th><td>8</td></tr><tr><th>advanced_roles</th><td>True</td></tr><tr><th>numeric_unique_rate</th><td>0.999</td></tr><tr><th>max_to_3rd_rate</th><td>1.1</td></tr><tr><th>binning_enc_rate</th><td>2</td></tr><tr><th>raw_decr_rate</th><td>1.1</td></tr><tr><th>max_score_rate</th><td>0.2</td></tr><tr><th>abs_score_val</th><td>0.04</td></tr><tr><th>drop_score_co</th><td>0.0</td></tr></table></td></tr><tr><th>read_csv_params</th><td><table border="1"><tr><th>decimal</th><td>.</td></tr><tr><th>sep</th><td>,</td></tr></table></td></tr><tr><th>nested_cv_params</th><td><table border="1"><tr><th>cv</th><td>5</td></tr><tr><th>n_folds</th><td>None</td></tr><tr><th>inner_tune</th><td>False</td></tr><tr><th>refit_tuner</th><td>True</td></tr></table></td></tr><tr><th>selection_params</th><td><table border="1"><tr><th>mode</th><td>1</td></tr><tr><th>importance_type</th><td>gain</td></tr><tr><th>fit_on_holdout</th><td>True</td></tr><tr><th>cutoff</th><td>0</td></tr><tr><th>feature_group_size</th><td>1</td></tr><tr><th>max_features_cnt_in_result</th><td>None</td></tr><tr><th>select_algos</th><td>&lt;class &#x27;list&#x27;&gt;</td></tr></table></td></tr><tr><th>tuning_params</th><td><table border="1"><tr><th>fit_on_holdout</th><td>True</td></tr><tr><th>max_tuning_iter</th><td>101</td></tr><tr><th>max_tuning_time</th><td>300</td></tr></table></td></tr><tr><th>lgb_params</th><td><table border="1"><tr><th>default_params</th><td><table border="1"><tr><th>num_threads</th><td>100</td></tr></table></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>cb_params</th><td><table border="1"><tr><th>default_params</th><td><table border="1"><tr><th>task_type</th><td>CPU</td></tr><tr><th>thread_count</th><td>100</td></tr></table></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>linear_l2_params</th><td><table border="1"><tr><th>default_params</th><td></td></tr><tr><th>freeze_defaults</th><td>False</td></tr></table></td></tr><tr><th>gbm_pipeline_params</th><td><table border="1"><tr><th>top_intersections</th><td>4</td></tr><tr><th>max_intersection_depth</th><td>3</td></tr><tr><th>subsample</th><td>100000</td></tr><tr><th>auto_unique_co</th><td>10</td></tr><tr><th>multiclass_te_co</th><td>3</td></tr><tr><th>output_categories</th><td>False</td></tr></table></td></tr><tr><th>linear_pipeline_params</th><td><table border="1"><tr><th>top_intersections</th><td>4</td></tr><tr><th>max_intersection_depth</th><td>3</td></tr><tr><th>subsample</th><td>100000</td></tr><tr><th>auto_unique_co</th><td>50</td></tr><tr><th>multiclass_te_co</th><td>3</td></tr></table></td></tr><tr><th>timing_params</th><td><table border="1"><tr><th>mode</th><td>1</td></tr><tr><th>overhead</th><td>0.1</td></tr><tr><th>tuning_rate</th><td>0.7</td></tr></table></td></tr><tr><th>timer</th><td><table border="1"><tr><th>run_info</th><td></td></tr><tr><th>run_scores</th><td></td></tr><tr><th>tuning_rate</th><td>0.7</td></tr><tr><th>child_out_of_time</th><td>False</td></tr></table></td></tr><tr><th>memory_limit</th><td>16</td></tr><tr><th>cpu_limit</th><td>8</td></tr><tr><th>gpu_ids</th><td></td></tr><tr><th>task</th><td><table border="1"><tr><th>losses</th><td><table border="1"><tr><th>lgb</th><td><table border="1"><tr><th>fobj_name</th><td>binary</td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>feval</th><td>None</td></tr></table></td></tr><tr><th>sklearn</th><td><table border="1"><tr><th>flg_regressor</th><td>False</td></tr><tr><th>loss</th><td>logloss</td></tr><tr><th>loss_params</th><td>None</td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_func</th><td><table border="1"><tr><th>metric_func</th><td></td></tr><tr><th>m</th><td>1.0</td></tr><tr><th>bw_func</th><td></td></tr></table></td></tr><tr><th>metric_name</th><td>auc</td></tr></table></td></tr><tr><th>torch</th><td><table border="1"><tr><th>loss_params</th><td></td></tr><tr><th>loss</th><td><table border="1"><tr><th>training</th><td>True</td></tr><tr><th>flatten</th><td>False</td></tr><tr><th>log</th><td>False</td></tr></table></td></tr><tr><th>metric</th><td>auc</td></tr><tr><th>metric_func</th><td><table border="1"><tr><th>metric_func</th><td></td></tr><tr><th>m</th><td>1.0</td></tr><tr><th>bw_func</th><td></td></tr></table></td></tr><tr><th>metric_name</th><td>auc</td></tr></table></td></tr><tr><th>cb</th><td><table border="1"><tr><th>loss_params</th><td></td></tr><tr><th>fobj</th><td>None</td></tr><tr><th>fobj_name</th><td>Logloss</td></tr><tr><th>fobj_params</th><td></td></tr><tr><th>metric</th><td>None</td></tr><tr><th>metric_name</th><td>AUC</td></tr><tr><th>metric_params</th><td></td></tr></table></td></tr></table></td></tr><tr><th>metric_params</th><td></td></tr><tr><th>metric_func</th><td></td></tr><tr><th>metric_name</th><td>auc</td></tr><tr><th>greater_is_better</th><td>&lt;class &#x27;numpy.bool_&#x27;&gt;</td></tr></table></td></tr></table>
+            </ul>
+        </li>
+        <li>
+            <h3 class="caret" id="section1_2">Summary results</h3>
+            <ul class="nested">
+                
+                    <p>Results for data samples:</p>
+
+                    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Evaluation parameter</th>
+      <th>Validation sample</th>
+      <th>Test sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AUC-score</td>
+      <td>0.9957</td>
+      <td>0.9966</td>
+    </tr>
+    <tr>
+      <td>Precision</td>
+      <td>0.9568</td>
+      <td>0.9555</td>
+    </tr>
+    <tr>
+      <td>Recall</td>
+      <td>0.9756</td>
+      <td>0.9808</td>
+    </tr>
+    <tr>
+      <td>F1-score</td>
+      <td>0.9661</td>
+      <td>0.9680</td>
+    </tr>
+  </tbody>
+</table>
+                
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+            <li>
+    <h2 class="caret caret-down" id="section2">Data overview</h2>
+    <ul class="nested active">
+        <li>
+            <h3 class="caret" id="section2_1">Train data summary</h3>
+            <ul class="nested">
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Number of records</td>
+      <td>10232</td>
+    </tr>
+    <tr>
+      <td>Total number of features</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td>Used features</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>Dropped features</td>
+      <td>28</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+        <li>
+            <h3 class="caret" id="section2_2">Train data details</h3>
+            <ul class="nested">
+                <li>
+                    <h4 class="caret" id="section2_2_1">Numerical features</h4>
+                    <ul class="nested">
+                        
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Feature name</th>
+      <th>NaN ratio</th>
+      <th>min</th>
+      <th>quantile_25</th>
+      <th>average</th>
+      <th>median</th>
+      <th>quantile_75</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Длина_1</td>
+      <td>0.0000</td>
+      <td>20.21</td>
+      <td>377.20</td>
+      <td>732.69</td>
+      <td>731.70</td>
+      <td>1088.68</td>
+      <td>1463.00</td>
+    </tr>
+    <tr>
+      <td>Длина_Обезуглероживание</td>
+      <td>0.0000</td>
+      <td>99.43</td>
+      <td>1908.32</td>
+      <td>3715.08</td>
+      <td>3697.70</td>
+      <td>5503.78</td>
+      <td>7750.00</td>
+    </tr>
+    <tr>
+      <td>Толщина_средняя</td>
+      <td>0.0000</td>
+      <td>23.00</td>
+      <td>24.00</td>
+      <td>24.54</td>
+      <td>24.00</td>
+      <td>25.00</td>
+      <td>26.00</td>
+    </tr>
+    <tr>
+      <td>Длина_МС</td>
+      <td>0.0000</td>
+      <td>100.00</td>
+      <td>1890.00</td>
+      <td>3679.52</td>
+      <td>3660.00</td>
+      <td>5450.00</td>
+      <td>7680.00</td>
+    </tr>
+    <tr>
+      <td>Длина_Н</td>
+      <td>0.0000</td>
+      <td>25.00</td>
+      <td>370.58</td>
+      <td>733.56</td>
+      <td>719.77</td>
+      <td>1067.53</td>
+      <td>1850.00</td>
+    </tr>
+    <tr>
+      <td>N</td>
+      <td>0.0000</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <td>Al</td>
+      <td>0.0000</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.03</td>
+    </tr>
+    <tr>
+      <td>Номер_бригады</td>
+      <td>0.0000</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.91</td>
+      <td>2.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>Длина__м</td>
+      <td>0.0000</td>
+      <td>0.01</td>
+      <td>0.26</td>
+      <td>0.51</td>
+      <td>0.51</td>
+      <td>0.75</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>ЗВО</td>
+      <td>0.0000</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3.39</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Калиброванное_значение_CO2_Этап2_зона4</td>
+      <td>0.0000</td>
+      <td>-1.03</td>
+      <td>-0.73</td>
+      <td>-0.02</td>
+      <td>-0.02</td>
+      <td>0.68</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <td>Mn</td>
+      <td>0.0000</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <td>NH3_Этап3_зона3</td>
+      <td>0.0000</td>
+      <td>-1.00</td>
+      <td>-0.69</td>
+      <td>0.01</td>
+      <td>0.03</td>
+      <td>0.72</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>T_Этап3_зона4</td>
+      <td>0.0000</td>
+      <td>1.00</td>
+      <td>246.00</td>
+      <td>500.79</td>
+      <td>498.00</td>
+      <td>755.00</td>
+      <td>999.00</td>
+    </tr>
+    <tr>
+      <td>Настройка_датчика_CO2_Этап2_зона4</td>
+      <td>0.0000</td>
+      <td>-1.00</td>
+      <td>-0.71</td>
+      <td>-0.00</td>
+      <td>0.00</td>
+      <td>0.70</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Sn</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Коэффициент_свойств_стали</td>
+      <td>0.0000</td>
+      <td>1.00</td>
+      <td>2.00</td>
+      <td>2.16</td>
+      <td>2.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>0.0000</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <td>Скорость_технологической_секции</td>
+      <td>0.0000</td>
+      <td>63.00</td>
+      <td>68.00</td>
+      <td>67.97</td>
+      <td>68.00</td>
+      <td>68.00</td>
+      <td>70.00</td>
+    </tr>
+    <tr>
+      <td>H2_Этап3_зона2</td>
+      <td>0.0000</td>
+      <td>6.13</td>
+      <td>13.35</td>
+      <td>17.14</td>
+      <td>16.80</td>
+      <td>20.94</td>
+      <td>32.52</td>
+    </tr>
+    <tr>
+      <td>NH3_Этап3_зона1</td>
+      <td>0.0000</td>
+      <td>0.02</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <td>CO_Этап2_зона5</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>1.57</td>
+      <td>1.57</td>
+      <td>1.57</td>
+      <td>1.57</td>
+      <td>1.57</td>
+    </tr>
+    <tr>
+      <td>Т_Этап5_зона1</td>
+      <td>0.0000</td>
+      <td>741.52</td>
+      <td>744.80</td>
+      <td>746.06</td>
+      <td>746.17</td>
+      <td>747.55</td>
+      <td>749.48</td>
+    </tr>
+    <tr>
+      <td>Т_Этап5_зона2</td>
+      <td>0.0000</td>
+      <td>742.86</td>
+      <td>744.97</td>
+      <td>745.47</td>
+      <td>745.36</td>
+      <td>746.21</td>
+      <td>747.59</td>
+    </tr>
+    <tr>
+      <td>Т_Этап4_зона1</td>
+      <td>0.0000</td>
+      <td>837.71</td>
+      <td>839.33</td>
+      <td>840.01</td>
+      <td>840.05</td>
+      <td>840.58</td>
+      <td>842.20</td>
+    </tr>
+    <tr>
+      <td>T_Этап1_зона1</td>
+      <td>0.0000</td>
+      <td>922.86</td>
+      <td>929.23</td>
+      <td>929.94</td>
+      <td>930.00</td>
+      <td>930.53</td>
+      <td>935.59</td>
+    </tr>
+    <tr>
+      <td>T_Этап1_зона2</td>
+      <td>0.0000</td>
+      <td>923.05</td>
+      <td>929.32</td>
+      <td>929.96</td>
+      <td>930.12</td>
+      <td>930.59</td>
+      <td>938.88</td>
+    </tr>
+    <tr>
+      <td>T_Этап1_зона3</td>
+      <td>0.0000</td>
+      <td>902.94</td>
+      <td>909.32</td>
+      <td>909.99</td>
+      <td>910.24</td>
+      <td>910.57</td>
+      <td>914.39</td>
+    </tr>
+    <tr>
+      <td>T_Этап1_зона4</td>
+      <td>0.0000</td>
+      <td>892.08</td>
+      <td>899.23</td>
+      <td>900.01</td>
+      <td>900.04</td>
+      <td>900.67</td>
+      <td>905.13</td>
+    </tr>
+    <tr>
+      <td>T_Этап2_зона1</td>
+      <td>0.0000</td>
+      <td>833.22</td>
+      <td>839.62</td>
+      <td>840.02</td>
+      <td>839.92</td>
+      <td>840.49</td>
+      <td>842.83</td>
+    </tr>
+    <tr>
+      <td>T_Этап2_зона2</td>
+      <td>0.0000</td>
+      <td>834.77</td>
+      <td>839.52</td>
+      <td>840.01</td>
+      <td>840.08</td>
+      <td>840.39</td>
+      <td>842.57</td>
+    </tr>
+    <tr>
+      <td>T_Этап2_зона3</td>
+      <td>0.0000</td>
+      <td>838.55</td>
+      <td>839.67</td>
+      <td>839.99</td>
+      <td>840.11</td>
+      <td>840.23</td>
+      <td>840.89</td>
+    </tr>
+    <tr>
+      <td>T_Этап2_зона4</td>
+      <td>0.0000</td>
+      <td>838.76</td>
+      <td>839.74</td>
+      <td>840.00</td>
+      <td>839.87</td>
+      <td>840.40</td>
+      <td>841.09</td>
+    </tr>
+    <tr>
+      <td>T_Этап2_зона5</td>
+      <td>0.0000</td>
+      <td>838.37</td>
+      <td>839.72</td>
+      <td>840.02</td>
+      <td>840.04</td>
+      <td>840.28</td>
+      <td>841.68</td>
+    </tr>
+    <tr>
+      <td>T_Этап3_зона1</td>
+      <td>0.0000</td>
+      <td>768.21</td>
+      <td>769.48</td>
+      <td>770.01</td>
+      <td>769.84</td>
+      <td>770.44</td>
+      <td>772.03</td>
+    </tr>
+    <tr>
+      <td>T_Этап3_зона3</td>
+      <td>0.0000</td>
+      <td>767.95</td>
+      <td>769.50</td>
+      <td>769.98</td>
+      <td>769.92</td>
+      <td>770.54</td>
+      <td>772.05</td>
+    </tr>
+    <tr>
+      <td>T_в_середине_нормализации_1</td>
+      <td>0.0000</td>
+      <td>1083.50</td>
+      <td>1097.53</td>
+      <td>1098.56</td>
+      <td>1098.61</td>
+      <td>1099.68</td>
+      <td>1108.67</td>
+    </tr>
+    <tr>
+      <td>T_в_конце_нормализации</td>
+      <td>0.0000</td>
+      <td>900.30</td>
+      <td>903.58</td>
+      <td>905.50</td>
+      <td>905.48</td>
+      <td>907.42</td>
+      <td>909.55</td>
+    </tr>
+    <tr>
+      <td>T_проход_1</td>
+      <td>0.0000</td>
+      <td>16.14</td>
+      <td>123.28</td>
+      <td>133.70</td>
+      <td>133.30</td>
+      <td>143.15</td>
+      <td>203.21</td>
+    </tr>
+    <tr>
+      <td>T_проход_3</td>
+      <td>0.0000</td>
+      <td>84.47</td>
+      <td>208.12</td>
+      <td>219.70</td>
+      <td>220.26</td>
+      <td>231.71</td>
+      <td>274.08</td>
+    </tr>
+    <tr>
+      <td>T_проход_5</td>
+      <td>0.0000</td>
+      <td>59.00</td>
+      <td>192.48</td>
+      <td>204.52</td>
+      <td>204.60</td>
+      <td>216.22</td>
+      <td>257.36</td>
+    </tr>
+    <tr>
+      <td>T_проход_4</td>
+      <td>0.0000</td>
+      <td>105.42</td>
+      <td>218.25</td>
+      <td>229.90</td>
+      <td>234.35</td>
+      <td>244.04</td>
+      <td>279.14</td>
+    </tr>
+    <tr>
+      <td>Ti</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Длина_Азотирование</td>
+      <td>0.0000</td>
+      <td>20.00</td>
+      <td>657.50</td>
+      <td>3346.09</td>
+      <td>2570.00</td>
+      <td>5720.00</td>
+      <td>9920.00</td>
+    </tr>
+    <tr>
+      <td>Толщина_МС</td>
+      <td>0.0000</td>
+      <td>0.13</td>
+      <td>0.29</td>
+      <td>0.29</td>
+      <td>0.29</td>
+      <td>0.29</td>
+      <td>0.36</td>
+    </tr>
+    <tr>
+      <td>Точка_росы_Этап4_зона1</td>
+      <td>0.0000</td>
+      <td>-19.86</td>
+      <td>-19.86</td>
+      <td>-17.22</td>
+      <td>-19.28</td>
+      <td>-17.73</td>
+      <td>56.38</td>
+    </tr>
+    <tr>
+      <td>T_за_средней_клетью</td>
+      <td>0.0000</td>
+      <td>927.19</td>
+      <td>948.30</td>
+      <td>952.13</td>
+      <td>952.80</td>
+      <td>956.39</td>
+      <td>969.75</td>
+    </tr>
+    <tr>
+      <td>T_конца_проката</td>
+      <td>0.0000</td>
+      <td>914.52</td>
+      <td>921.87</td>
+      <td>924.52</td>
+      <td>923.87</td>
+      <td>927.27</td>
+      <td>941.61</td>
+    </tr>
+    <tr>
+      <td>T_рулона</td>
+      <td>0.0000</td>
+      <td>544.04</td>
+      <td>559.56</td>
+      <td>564.04</td>
+      <td>563.87</td>
+      <td>568.29</td>
+      <td>634.80</td>
+    </tr>
+    <tr>
+      <td>Толщина_перед_смоткой</td>
+      <td>0.0000</td>
+      <td>0.27</td>
+      <td>2.29</td>
+      <td>2.26</td>
+      <td>2.29</td>
+      <td>2.30</td>
+      <td>2.36</td>
+    </tr>
+    <tr>
+      <td>CO2_Этап2_зона5</td>
+      <td>0.0000</td>
+      <td>1.00</td>
+      <td>1.49</td>
+      <td>2.00</td>
+      <td>2.01</td>
+      <td>2.52</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>H2_Этап2_зона5</td>
+      <td>0.0000</td>
+      <td>68.00</td>
+      <td>69.00</td>
+      <td>70.00</td>
+      <td>70.00</td>
+      <td>71.00</td>
+      <td>72.00</td>
+    </tr>
+    <tr>
+      <td>Точка_росы_Этап1_зона2</td>
+      <td>0.4409</td>
+      <td>61.91</td>
+      <td>62.99</td>
+      <td>63.21</td>
+      <td>63.22</td>
+      <td>63.40</td>
+      <td>64.04</td>
+    </tr>
+    <tr>
+      <td>CO2_Этап2_зона3</td>
+      <td>0.0000</td>
+      <td>0.03</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.05</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <td>Длительность непрерывного отжига</td>
+      <td>0.0000</td>
+      <td>43.80</td>
+      <td>45.30</td>
+      <td>45.26</td>
+      <td>45.30</td>
+      <td>45.30</td>
+      <td>45.90</td>
+    </tr>
+  </tbody>
+</table>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h4 class="caret" id="section2_2_2">Categorical features</h4>
+                    <ul class="nested">
+                        
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Feature name</th>
+      <th>NaN ratio</th>
+      <th>Number of unique values</th>
+      <th>Most frequent value</th>
+      <th>Occurance of most frequent</th>
+      <th>Least frequent value</th>
+      <th>Occurance of least frequent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Азот_среднее</td>
+      <td>0.0000</td>
+      <td>8</td>
+      <td>0.023</td>
+      <td>21.8%</td>
+      <td>0.0215</td>
+      <td>5.5%</td>
+    </tr>
+    <tr>
+      <td>CO_Этап2_зона1</td>
+      <td>0.0000</td>
+      <td>315</td>
+      <td>1.7</td>
+      <td>9.4%</td>
+      <td>1.677965</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>CO_Этап2_зона2</td>
+      <td>0.0000</td>
+      <td>416</td>
+      <td>1.11</td>
+      <td>8.6%</td>
+      <td>1.272925</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>CO_Этап2_зона4</td>
+      <td>0.0000</td>
+      <td>259</td>
+      <td>0.2</td>
+      <td>13.4%</td>
+      <td>0.199421</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>CO2_Этап1</td>
+      <td>0.0000</td>
+      <td>111</td>
+      <td>0.1</td>
+      <td>44.6%</td>
+      <td>0.118654</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>Si</td>
+      <td>0.0000</td>
+      <td>5</td>
+      <td>3.333</td>
+      <td>28.8%</td>
+      <td>3.32</td>
+      <td>16.0%</td>
+    </tr>
+    <tr>
+      <td>Кислород_конец</td>
+      <td>0.0000</td>
+      <td>17</td>
+      <td>0.0875</td>
+      <td>11.5%</td>
+      <td>0.0863</td>
+      <td>4.5%</td>
+    </tr>
+    <tr>
+      <td>Кислород_среднее</td>
+      <td>0.0000</td>
+      <td>18</td>
+      <td>0.08675</td>
+      <td>6.3%</td>
+      <td>0.08265</td>
+      <td>4.5%</td>
+    </tr>
+    <tr>
+      <td>Средние_магнитные_потери</td>
+      <td>0.0000</td>
+      <td>17</td>
+      <td>1.04</td>
+      <td>11.3%</td>
+      <td>1.06</td>
+      <td>4.5%</td>
+    </tr>
+    <tr>
+      <td>H2_Этап4_зона1</td>
+      <td>0.0000</td>
+      <td>1180</td>
+      <td>50.08</td>
+      <td>1.5%</td>
+      <td>49.314057</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>H2_Этап2_зона1</td>
+      <td>0.0000</td>
+      <td>544</td>
+      <td>68.42</td>
+      <td>4.0%</td>
+      <td>69.072367</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>H2_Этап2_зона3</td>
+      <td>0.0000</td>
+      <td>657</td>
+      <td>65.36</td>
+      <td>1.5%</td>
+      <td>66.29963</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>H2_Этап2_зона4</td>
+      <td>0.0000</td>
+      <td>731</td>
+      <td>53.11</td>
+      <td>2.1%</td>
+      <td>53.387739</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>H2_Этап3_зона1</td>
+      <td>0.0000</td>
+      <td>1129</td>
+      <td>34.91</td>
+      <td>2.3%</td>
+      <td>35.098344</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>NH3_Этап3_зона2</td>
+      <td>0.0000</td>
+      <td>754</td>
+      <td>0.91</td>
+      <td>10.8%</td>
+      <td>0.806038</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>Углерод_среднее</td>
+      <td>0.0000</td>
+      <td>14</td>
+      <td>0.003</td>
+      <td>11.8%</td>
+      <td>0.0039</td>
+      <td>4.5%</td>
+    </tr>
+    <tr>
+      <td>T_проход_2</td>
+      <td>0.0000</td>
+      <td>3868</td>
+      <td>200.57</td>
+      <td>0.2%</td>
+      <td>202.92</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>ШОС</td>
+      <td>0.0000</td>
+      <td>5</td>
+      <td>Melubir 6733/LI</td>
+      <td>28.8%</td>
+      <td>Melubir 6731/LI</td>
+      <td>16.0%</td>
+    </tr>
+    <tr>
+      <td>Точка_росы_Этап2_зона2</td>
+      <td>0.0000</td>
+      <td>282</td>
+      <td>60.9</td>
+      <td>1.4%</td>
+      <td>61.33</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>Тренд_температуры_перед_реверсивным_станом</td>
+      <td>0.0000</td>
+      <td>94</td>
+      <td>349</td>
+      <td>4.8%</td>
+      <td>289</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>0.0000</td>
+      <td>4</td>
+      <td>0.055</td>
+      <td>46.3%</td>
+      <td>0.056</td>
+      <td>16.0%</td>
+    </tr>
+    <tr>
+      <td>Водород_среднее</td>
+      <td>0.0000</td>
+      <td>58</td>
+      <td>3.3</td>
+      <td>3.2%</td>
+      <td>6.7</td>
+      <td>0.1%</td>
+    </tr>
+    <tr>
+      <td>Точка_росы_Этап1_зона1</td>
+      <td>0.5591</td>
+      <td>149</td>
+      <td>63.51</td>
+      <td>6.9%</td>
+      <td>62.45</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>CO_Этап1_зона1</td>
+      <td>0.8989</td>
+      <td>34</td>
+      <td>1.58</td>
+      <td>25.0%</td>
+      <td>1.536296</td>
+      <td>0.1%</td>
+    </tr>
+    <tr>
+      <td>H2_Этап1</td>
+      <td>0.0000</td>
+      <td>514</td>
+      <td>69.6</td>
+      <td>3.1%</td>
+      <td>69.295089</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>CO2_Этап2_зона1</td>
+      <td>0.0000</td>
+      <td>81</td>
+      <td>0.09</td>
+      <td>37.6%</td>
+      <td>0.088237</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>Длительность технологической секции</td>
+      <td>0.0000</td>
+      <td>5</td>
+      <td>45.3</td>
+      <td>61.2%</td>
+      <td>45.9</td>
+      <td>7.2%</td>
+    </tr>
+  </tbody>
+</table>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h4 class="caret" id="section2_2_3">Datetime features</h4>
+                    <ul class="nested">
+                        
+                        <p>No datetime features.</p>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h4 class="caret" id="section2_2_4">Textual features</h4>
+                    <ul class="nested">
+                        
+                        <p>No textual features.</p>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h4 class="caret" id="section2_2_5">Dropped features</h4>
+                    <ul class="nested">
+                        
+                        <p>Some features were excluded from the training set.</p>
+                        <p>Except target variable which was used as target, also there were excluded variables, in which NaN rate exceeds <i>max_nan_rate</i> = 0.999. In addition to this, the variables with <i>max_constant_rate</i> > 0.999 excluded:</p>
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Название переменной</th>
+      <th>nan_rate</th>
+      <th>constant_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Длина_2</td>
+      <td>0.000000</td>
+      <td>0.001271</td>
+    </tr>
+    <tr>
+      <td>Длина_3</td>
+      <td>0.000000</td>
+      <td>0.000391</td>
+    </tr>
+    <tr>
+      <td>Длина_4</td>
+      <td>0.000000</td>
+      <td>0.001075</td>
+    </tr>
+    <tr>
+      <td>Длина_5</td>
+      <td>0.000000</td>
+      <td>0.000391</td>
+    </tr>
+    <tr>
+      <td>Углерод_начало</td>
+      <td>0.000000</td>
+      <td>0.169077</td>
+    </tr>
+    <tr>
+      <td>Длина_ГП</td>
+      <td>0.000000</td>
+      <td>0.001173</td>
+    </tr>
+    <tr>
+      <td>Азот_конец</td>
+      <td>0.000000</td>
+      <td>0.338643</td>
+    </tr>
+    <tr>
+      <td>Азот_начало</td>
+      <td>0.000000</td>
+      <td>0.325645</td>
+    </tr>
+    <tr>
+      <td>Кислород_начало</td>
+      <td>0.000000</td>
+      <td>0.113761</td>
+    </tr>
+    <tr>
+      <td>CO_Этап2_зона3</td>
+      <td>0.000000</td>
+      <td>0.146990</td>
+    </tr>
+    <tr>
+      <td>Датчик_механических_свойств</td>
+      <td>0.000000</td>
+      <td>0.000391</td>
+    </tr>
+    <tr>
+      <td>Углерод_конец</td>
+      <td>0.000000</td>
+      <td>0.227619</td>
+    </tr>
+    <tr>
+      <td>H2_Этап2_зона2</td>
+      <td>0.000000</td>
+      <td>0.024824</td>
+    </tr>
+    <tr>
+      <td>Т_Этап4_зона2</td>
+      <td>0.000000</td>
+      <td>0.007428</td>
+    </tr>
+    <tr>
+      <td>T_Этап1_зона5</td>
+      <td>0.000000</td>
+      <td>0.115911</td>
+    </tr>
+    <tr>
+      <td>T_Этап2_зона6</td>
+      <td>0.000000</td>
+      <td>0.108776</td>
+    </tr>
+    <tr>
+      <td>T_Этап2_зона7</td>
+      <td>0.000000</td>
+      <td>0.055317</td>
+    </tr>
+    <tr>
+      <td>T_Этап3_зона2</td>
+      <td>0.000000</td>
+      <td>0.013976</td>
+    </tr>
+    <tr>
+      <td>T_в_начале_нормализации</td>
+      <td>0.000000</td>
+      <td>0.005375</td>
+    </tr>
+    <tr>
+      <td>T_в_середине_нормализации_2</td>
+      <td>0.000000</td>
+      <td>0.005375</td>
+    </tr>
+    <tr>
+      <td>Температура_полосы_на_выходе_реверсивного стана</td>
+      <td>0.000000</td>
+      <td>0.048182</td>
+    </tr>
+    <tr>
+      <td>Точка_росы_Этап2_зона3</td>
+      <td>0.000000</td>
+      <td>0.007525</td>
+    </tr>
+    <tr>
+      <td>Удельные_потери</td>
+      <td>0.000000</td>
+      <td>0.005571</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>0.000000</td>
+      <td>0.551505</td>
+    </tr>
+    <tr>
+      <td>Cr</td>
+      <td>0.000000</td>
+      <td>0.612588</td>
+    </tr>
+    <tr>
+      <td>Водород_начало</td>
+      <td>0.000000</td>
+      <td>0.044273</td>
+    </tr>
+    <tr>
+      <td>CO_Этап1_зона2</td>
+      <td>0.101056</td>
+      <td>0.131115</td>
+    </tr>
+  </tbody>
+</table>
+                        
+
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+            <li>
+    <h2 class="caret" id="section1">Feature importance</h2>
+    <ul class="nested">
+        
+            <p>Feature importance calculation method: <b>fast</b>.</p>
+            <p><img src=feature_importance.png alt="feature_importance"></p>
+        
+    </ul>
+</li>
+        
+            <li>
+    <h2 class="caret caret-down" id="section2">Detailed model results</h2>
+    <ul class="nested active">
+        
+            <li>
+    <h3 class="caret" id="section3">Results on validation sample</h3>
+    <ul class="nested">
+        <li>
+            <h4 class="caret" id="section3_2">ROC curve</h4>
+            <ul class="nested">
+                <p><img src=valid_roc_curve.png alt="AUC valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_3">ROC-PR curve</h4>
+            <ul class="nested">
+                <p><img src=valid_pr_curve.png alt="PR valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_4">Pie F1 metric</h4>
+            <ul class="nested">
+                <p><img src=valid_pie_f1_metric.png alt="Pie F1 metric"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_5">Distribution of object predictions by bins</h4>
+            <ul class="nested">
+                <p><img src=valid_preds_distribution_by_bins.png alt="preds_distribution_by_bins"></p>
+                <p><img src=valid_distribution_of_logits.png alt="distribution_of_logits"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_6">Distribution of Logits by bins</h4>
+            <ul class="nested">
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Bin number</th>
+      <th>Amount of objects</th>
+      <th>Mean target</th>
+      <th>Min probability</th>
+      <th>Average probability</th>
+      <th>Max probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>512</td>
+      <td>1.000000</td>
+      <td>0.999626</td>
+      <td>0.999761</td>
+      <td>0.999952</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>512</td>
+      <td>1.000000</td>
+      <td>0.999316</td>
+      <td>0.999479</td>
+      <td>0.999626</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>511</td>
+      <td>1.000000</td>
+      <td>0.999008</td>
+      <td>0.999180</td>
+      <td>0.999315</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>512</td>
+      <td>1.000000</td>
+      <td>0.998447</td>
+      <td>0.998753</td>
+      <td>0.999007</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>511</td>
+      <td>1.000000</td>
+      <td>0.996838</td>
+      <td>0.997803</td>
+      <td>0.998447</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>512</td>
+      <td>0.996094</td>
+      <td>0.994827</td>
+      <td>0.995537</td>
+      <td>0.996835</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>512</td>
+      <td>0.996094</td>
+      <td>0.991303</td>
+      <td>0.993559</td>
+      <td>0.994825</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>511</td>
+      <td>0.986301</td>
+      <td>0.971404</td>
+      <td>0.984357</td>
+      <td>0.991298</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>512</td>
+      <td>0.902344</td>
+      <td>0.863583</td>
+      <td>0.930471</td>
+      <td>0.971296</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>511</td>
+      <td>0.655577</td>
+      <td>0.437936</td>
+      <td>0.689550</td>
+      <td>0.862804</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>512</td>
+      <td>0.189453</td>
+      <td>0.041761</td>
+      <td>0.170116</td>
+      <td>0.431944</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>512</td>
+      <td>0.025391</td>
+      <td>0.009951</td>
+      <td>0.019604</td>
+      <td>0.040886</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>511</td>
+      <td>0.005871</td>
+      <td>0.005958</td>
+      <td>0.007495</td>
+      <td>0.009946</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>512</td>
+      <td>0.000000</td>
+      <td>0.004324</td>
+      <td>0.005054</td>
+      <td>0.005945</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>511</td>
+      <td>0.000000</td>
+      <td>0.002159</td>
+      <td>0.003035</td>
+      <td>0.004315</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>512</td>
+      <td>0.000000</td>
+      <td>0.001373</td>
+      <td>0.001734</td>
+      <td>0.002157</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>512</td>
+      <td>0.000000</td>
+      <td>0.000921</td>
+      <td>0.001120</td>
+      <td>0.001370</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>511</td>
+      <td>0.000000</td>
+      <td>0.000660</td>
+      <td>0.000781</td>
+      <td>0.000920</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>512</td>
+      <td>0.000000</td>
+      <td>0.000381</td>
+      <td>0.000513</td>
+      <td>0.000660</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>511</td>
+      <td>0.000000</td>
+      <td>0.000064</td>
+      <td>0.000244</td>
+      <td>0.000380</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+            <li>
+    <h3 class="caret" id="section3">Results on test sample</h3>
+    <ul class="nested">
+        <li>
+            <h4 class="caret" id="section3_2">ROC curve</h4>
+            <ul class="nested">
+                <p><img src=test_roc_curve_1.png alt="AUC valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_3">ROC-PR curve</h4>
+            <ul class="nested">
+                <p><img src=test_pr_curve_1.png alt="PR valid plot full"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_4">Pie F1 metric</h4>
+            <ul class="nested">
+                <p><img src=test_pie_f1_metric_1.png alt="Pie F1 metric"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_5">Distribution of object predictions by bins</h4>
+            <ul class="nested">
+                <p><img src=test_preds_distribution_by_bins_1.png alt="preds_distribution_by_bins"></p>
+                <p><img src=test_distribution_of_logits_1.png alt="distribution_of_logits"></p>
+            </ul>
+        </li>
+        <li>
+            <h4 class="caret" id="section3_6">Distribution of Logits by bins</h4>
+            <ul class="nested">
+                <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Bin number</th>
+      <th>Amount of objects</th>
+      <th>Mean target</th>
+      <th>Min probability</th>
+      <th>Average probability</th>
+      <th>Max probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>128</td>
+      <td>1.000000</td>
+      <td>0.998692</td>
+      <td>0.998786</td>
+      <td>0.998897</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>128</td>
+      <td>1.000000</td>
+      <td>0.998390</td>
+      <td>0.998540</td>
+      <td>0.998691</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>128</td>
+      <td>1.000000</td>
+      <td>0.997936</td>
+      <td>0.998173</td>
+      <td>0.998390</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>128</td>
+      <td>1.000000</td>
+      <td>0.997238</td>
+      <td>0.997617</td>
+      <td>0.997928</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>128</td>
+      <td>1.000000</td>
+      <td>0.996641</td>
+      <td>0.996886</td>
+      <td>0.997214</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>128</td>
+      <td>1.000000</td>
+      <td>0.995938</td>
+      <td>0.996323</td>
+      <td>0.996641</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>128</td>
+      <td>0.992188</td>
+      <td>0.993101</td>
+      <td>0.994894</td>
+      <td>0.995928</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>128</td>
+      <td>1.000000</td>
+      <td>0.973885</td>
+      <td>0.987419</td>
+      <td>0.992960</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>128</td>
+      <td>0.976562</td>
+      <td>0.870137</td>
+      <td>0.933678</td>
+      <td>0.973862</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>128</td>
+      <td>0.593750</td>
+      <td>0.460837</td>
+      <td>0.681846</td>
+      <td>0.866138</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>128</td>
+      <td>0.148438</td>
+      <td>0.036166</td>
+      <td>0.171457</td>
+      <td>0.460725</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>128</td>
+      <td>0.015625</td>
+      <td>0.007806</td>
+      <td>0.017818</td>
+      <td>0.035209</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>128</td>
+      <td>0.007812</td>
+      <td>0.004141</td>
+      <td>0.005682</td>
+      <td>0.007767</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>128</td>
+      <td>0.000000</td>
+      <td>0.002888</td>
+      <td>0.003365</td>
+      <td>0.004137</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>128</td>
+      <td>0.000000</td>
+      <td>0.002288</td>
+      <td>0.002536</td>
+      <td>0.002874</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>128</td>
+      <td>0.007812</td>
+      <td>0.001945</td>
+      <td>0.002092</td>
+      <td>0.002287</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>128</td>
+      <td>0.007812</td>
+      <td>0.001627</td>
+      <td>0.001774</td>
+      <td>0.001944</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>128</td>
+      <td>0.000000</td>
+      <td>0.001418</td>
+      <td>0.001518</td>
+      <td>0.001626</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>128</td>
+      <td>0.000000</td>
+      <td>0.001267</td>
+      <td>0.001340</td>
+      <td>0.001417</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>127</td>
+      <td>0.000000</td>
+      <td>0.001099</td>
+      <td>0.001187</td>
+      <td>0.001264</td>
+    </tr>
+  </tbody>
+</table>
+            </ul>
+        </li>
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+    </ul>
+    <script type="text/javascript">
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function () {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+    </script>
+</body>
+
+</html>
